@@ -4,13 +4,23 @@ import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
+import logo from '../assets/svg/Ambrosia.svg'
 
 
 
 export default function AppNav() {
   return (
     <Navbar bg="primary" variant="dark">
-      <Navbar.Brand href="#home">Ambrosia</Navbar.Brand>
+      <Navbar.Brand href="#home">
+        <img
+          alt="Ambrosia"
+          src={logo}
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+        />
+        Ambrosia
+      </Navbar.Brand>
       <Nav className="mr-auto">
         <Nav.Link href="#home">Home</Nav.Link>
         <Nav.Link href="#features">Features</Nav.Link>
