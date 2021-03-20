@@ -1,9 +1,10 @@
 import React from 'react'
+import AppNav from './AppNav'
 
 const App = () => {
   return (
     <div >
-          The basic empty template
+      <AppNav />
     </div>
   )
 }
