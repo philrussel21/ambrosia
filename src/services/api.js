@@ -52,6 +52,15 @@ export const getAllNonAlcDrinks = () => {
     });
 };
 
+export const getRandDrink = () => {
+  const fullUrl = baseUrl + "random.php";
+  return fetch(fullUrl)
+    .then(handleErrors)
+    .then(res => {
+      return res.json();
+    });
+};
+
 export const getDrinkFromId = (id) => {
   const fullUrl = baseUrl + "lookup.php?i=" + id;
   return fetch(fullUrl)
