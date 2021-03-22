@@ -43,6 +43,15 @@ export const getDrinksFromIng = (ing) => {
     });
 };
 
+export const getAllNonAlcDrinks = () => {
+  const fullUrl = baseUrl + "filter.php?a=Non_Alcoholic";
+  return fetch(fullUrl)
+    .then(handleErrors)
+    .then(res => {
+      return res.json();
+    });
+};
+
 export const getDrinkFromId = (id) => {
   const fullUrl = baseUrl + "lookup.php?i=" + id;
   return fetch(fullUrl)
