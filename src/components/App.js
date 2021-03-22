@@ -33,6 +33,9 @@ const App = () => {
             <Route path="/surprise-me">
               Surprise Me!
             </Route>
+            <Route path="*">
+              Invalid Route - 404
+            </Route>
 
           </Switch>
         </Container>
