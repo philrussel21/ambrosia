@@ -12,7 +12,10 @@ export const getAllCat = () => {
   return fetch(fullUrl)
     .then(handleErrors)
     .then(res => {
-      return res.json();
+      return res.json()
+        .then(data => {
+          return data;
+        });
     });
 };
 
@@ -21,7 +24,10 @@ export const getDrinksFromCat = (cat) => {
   return fetch(fullUrl)
     .then(handleErrors)
     .then(res => {
-      return res.json();
+      return res.json()
+        .then(data => {
+          return data;
+        });
     });
 };
 
@@ -30,7 +36,10 @@ export const getAllIng = () => {
   return fetch(fullUrl)
     .then(handleErrors)
     .then(res => {
-      return res.json();
+      return res.json()
+        .then(data => {
+          return data;
+        });
     });
 };
 
@@ -39,7 +48,10 @@ export const getDrinksFromIng = (ing) => {
   return fetch(fullUrl)
     .then(handleErrors)
     .then(res => {
-      return res.json();
+      return res.json()
+        .then(data => {
+          return data;
+        });
     });
 };
 
@@ -48,7 +60,10 @@ export const getAllNonAlcDrinks = () => {
   return fetch(fullUrl)
     .then(handleErrors)
     .then(res => {
-      return res.json();
+      return res.json()
+        .then(data => {
+          return data;
+        });
     });
 };
 
