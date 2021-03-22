@@ -8,6 +8,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Home from './Home'
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
 
           <Switch>
             <Route exact path="/">
-              Home
+              <Home />
             </Route>
             <Route path="/categories">
               Categories
