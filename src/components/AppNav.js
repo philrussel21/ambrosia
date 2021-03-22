@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
@@ -24,11 +25,21 @@ export default function AppNav() {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Categories</Nav.Link>
-          <Nav.Link href="#pricing">Ingredients</Nav.Link>
-          <Nav.Link href="#pricing">Non-Alcoholic</Nav.Link>
-          <Nav.Link href="#pricing">Suprise Me!</Nav.Link>
+          <Link to="/" className="nav-link">
+            Home
+            </Link>
+          <Link to="/categories" className="nav-link">
+            Categories
+            </Link>
+          <Link to="/ingredients" className="nav-link">
+            Ingredients
+            </Link>
+          <Link to="/non-alcoholic" className="nav-link">
+            Non-Alcoholic
+            </Link>
+          <Link to="/surprise-me" className="nav-link">
+            Surprise Me!
+            </Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -37,7 +48,5 @@ export default function AppNav() {
       </Navbar.Collapse>
 
     </Navbar>
-
-    // ----------
   )
 }
