@@ -1,0 +1,23 @@
+.foot-cont {
+	flex-direction: column;
+
+	.navbar-brand {
+		font-size: 0.75rem;
+		padding-top: 0;
+		padding-bottom: 0;
+		color: #007bff;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+	.foot-span {
+		color: #fff;
+		a {
+			color: #007bff;
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+}
