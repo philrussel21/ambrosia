@@ -1,5 +1,16 @@
+.wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
 .main-cont {
 	margin-top: 0.5em;
+	// Span the rest of the page
+	flex-grow: 1;
+	// Allowance for the footer
+	padding-bottom: 50px;
+	display: flex;
+	flex-direction: column;
 }
 .foot-cont {
 	flex-direction: column;
@@ -32,5 +43,15 @@
 	p {
 		margin-bottom: 0;
 		font-size: 0.8rem;
+	}
+}
+
+.content {
+	flex-grow: 1;
+}
+
+@media (max-width: 600px) {
+	.display-4 {
+		font-size: 2rem;
 	}
 }
