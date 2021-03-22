@@ -1,3 +1,6 @@
+.main-cont {
+	margin-top: 0.5em;
+}
 .foot-cont {
 	flex-direction: column;
 
@@ -19,5 +22,15 @@
 				color: #fff;
 			}
 		}
+	}
+}
+
+.disc-cont {
+	h4 {
+		font-size: 1.2rem;
+	}
+	p {
+		margin-bottom: 0;
+		font-size: 0.8rem;
 	}
 }
