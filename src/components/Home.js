@@ -1,15 +1,16 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 
 export default function Home() {
 
   const legend =
     [
-      { name: "Categories", color: "success", content: "Something about categories" },
-      { name: "Ingredients", color: "info", content: "Something about ingredients" },
-      { name: "Non-Alcoholic", color: "dark", content: "Something about non alcoholic drinks" },
-      { name: "Bartender, Surprise Me!", color: "warning", content: "Something about bringing a random drink" }
+      { name: "Categories", link: "/categories", color: "success", content: "Something about categories" },
+      { name: "Ingredients", link: "/ingredients", color: "info", content: "Something about ingredients" },
+      { name: "Non-Alcoholic", link: "/non-alcoholic", color: "dark", content: "Something about non alcoholic drinks" },
+      { name: "Bartender, Surprise Me!", link: "/surprise-me", color: "warning", content: "Something about bringing a random drink" }
     ];
 
   return (
@@ -29,19 +30,23 @@ export default function Home() {
         <Row>
           {legend.map((el, idx) => (
             <Col xs={12} sm={6} key={idx} className='mx-auto mb-3 home-cards'>
-              <Card
-                bg={el.color.toLowerCase()}
-                text="white"
-              // style={{ width: '18rem' }}
-              // className="mb-2"
-              >
-                <Card.Header>{el.name}</Card.Header>
-                <Card.Body>
-                  <Card.Text>
-                    {el.content}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
+              <Link to={el.link}>
+
+                <Card
+                  bg={el.color.toLowerCase()}
+                  text="white"
+                // style={{ width: '18rem' }}
+                // className="mb-2"
+                >
+                  <Card.Header>{el.name}</Card.Header>
+                  <Card.Body>
+                    <Card.Text>
+                      {el.content}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Link>
+
             </Col>
           ))}
         </Row>
