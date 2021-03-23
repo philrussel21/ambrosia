@@ -2,6 +2,12 @@
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+
+	a {
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 .main-cont {
 	margin-top: 0.5em;
