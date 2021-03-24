@@ -1,18 +1,18 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
-import AppNav from './AppNav'
-import Disclaimer from './Disclaimer'
-import Footer from './Footer'
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import AppNav from './AppNav';
+import Disclaimer from './Disclaimer';
+import Footer from './Footer';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import Home from './Home'
+import Home from './Home';
 
 const App = () => {
   return (
-    <div >
+    <div className="wrapper">
       <Router>
         <AppNav />
         <Container fluid="lg" className="main-cont">
@@ -43,7 +43,7 @@ const App = () => {
         <Footer />
       </Router>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

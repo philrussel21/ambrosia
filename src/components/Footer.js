@@ -1,11 +1,12 @@
-import React from 'react'
-import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container'
-import NavbarBrand from 'react-bootstrap/NavbarBrand'
+import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import NavbarBrand from 'react-bootstrap/NavbarBrand';
 
 export default function Footer() {
   return (
-    <div className="fixed-bottom">
+    // <div className="fixed-bottom">
+    <div>
       <Navbar variant="dark" bg="dark">
         <Container className="foot-cont">
           <NavbarBrand href="https://philantiporda.netlify.app/" target="_blank" rel="noreferrer">
@@ -20,5 +21,5 @@ export default function Footer() {
         </Container>
       </Navbar>
     </div>
-  )
+  );
 }

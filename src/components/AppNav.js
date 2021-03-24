@@ -1,27 +1,29 @@
-import React from 'react'
+import React from 'react';
 import { Link } from "react-router-dom";
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
-import Button from 'react-bootstrap/Button'
-import logo from '../assets/svg/Ambrosia.svg'
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
+import logo from '../assets/svg/Ambrosia.svg';
 
 
 
 export default function AppNav() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
-      <Navbar.Brand href="#home">
-        <img
-          alt="Ambrosia"
-          src={logo}
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-        />
+      <Link to="/">
+        <Navbar.Brand>
+          <img
+            alt="Ambrosia"
+            src={logo}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />
         Ambrosia
       </Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
@@ -48,5 +50,5 @@ export default function AppNav() {
       </Navbar.Collapse>
 
     </Navbar>
-  )
+  );
 }
