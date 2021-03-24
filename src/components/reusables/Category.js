@@ -8,13 +8,17 @@ export default function Category({ location }) {
   let category = location.pathname;
   const originPath = "/categories";
   category = removeOriginFromPath(originPath, category);
+
   const [drinks, setDrinks] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
 
   useEffect(() => {
+    setIsLoading(true);
     getDrinksFromCat(category)
       .then(data => {
         const { drinks } = data;
         setDrinks(drinks);
+        setIsLoading(false);
       });
   }, [category]);
 
@@ -34,8 +38,11 @@ export default function Category({ location }) {
       {/* Drinks */}
       <Container>
         <Row>
-          {drinks
+          {isLoading
             ?
+            // Skeleton Here
+            "Loading"
+            :
             drinks.map(drink => (
               <Col xs={12} sm={6} key={drink.idDrink} className='mx-auto mb-3'>
                 <Card className="mx-auto">
@@ -46,10 +53,7 @@ export default function Category({ location }) {
                 </Card>
               </Col>
             ))
-
-            :
-            // Skeleton Here
-            "Loading"}
+          }
         </Row>
       </Container>
     </div>
