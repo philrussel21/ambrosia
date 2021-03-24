@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import { getAllCat } from '../services/api';
+import { Link } from 'react-router-dom';
 
 export default function Categories() {
   const [categories, setCategories] = useState(null);
@@ -30,17 +31,16 @@ export default function Categories() {
           <Row>
             {categories.map((el, idx) => (
               <Col xs={12} sm={6} key={idx} className='mx-auto mb-3 home-cards'>
-                {/* <Link to=''> */}
-
-                <Card
-                >
-                  <Card.Body>
-                    <Card.Text>
-                      {el.strCategory}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-                {/* </Link> */}
+                <Link to={`/categories/${el.strCategory}`} >
+                  <Card
+                  >
+                    <Card.Body>
+                      <Card.Text>
+                        {el.strCategory}
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Link>
 
               </Col>
             ))}

@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Home from './Home';
 import Categories from './Categories';
+import Category from './reusables/Category';
 
 const App = () => {
   return (
@@ -23,9 +24,10 @@ const App = () => {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/categories">
+            <Route exact path="/categories">
               <Categories />
             </Route>
+            <Route path="/categories/:category" children={<Category />} />
             <Route path="/ingredients">
               Ingredients
             </Route>
