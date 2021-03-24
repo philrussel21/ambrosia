@@ -27,9 +27,7 @@ const App = () => {
             <Route exact path="/categories">
               <Categories />
             </Route>
-            <Route path="/categories/:category">
-              <Category />
-            </Route>
+            <Route path="/categories/:category" component={Category} />
             <Route path="/ingredients">
               Ingredients
             </Route>

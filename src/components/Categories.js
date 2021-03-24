@@ -19,7 +19,6 @@ export default function Categories() {
   }, []);
   return (
     <div className="content">
-      {console.log(categories)}
       {/* Heading */}
       <div>
         <h1 className="display-4 text-center">
