@@ -10,7 +10,11 @@ export default function Categories() {
     getAllCat()
       .then(data => {
         const { drinks } = data;
-        setCategories(drinks);
+        const categoryArr = [];
+        for (const cat of drinks) {
+          categoryArr.push(cat.strCategory);
+        }
+        setCategories(categoryArr);
       });
   }, []);
   return (
@@ -31,12 +35,12 @@ export default function Categories() {
           <Row>
             {categories.map((el, idx) => (
               <Col xs={12} sm={6} key={idx} className='mx-auto mb-3 home-cards'>
-                <Link to={`/categories/${el.strCategory}`} >
+                <Link to={`/categories/${el}`} >
                   <Card
                   >
                     <Card.Body>
                       <Card.Text>
-                        {el.strCategory}
+                        {el}
                       </Card.Text>
                     </Card.Body>
                   </Card>
