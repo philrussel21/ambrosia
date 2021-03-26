@@ -11,6 +11,7 @@ import {
 import Home from './Home';
 import Categories from './Categories';
 import Category from './reusables/Category';
+import Drinks from './Drinks';
 
 const App = () => {
   return (
@@ -23,6 +24,9 @@ const App = () => {
           <Switch>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/drinks">
+              <Drinks />
             </Route>
             <Route exact path="/categories">
               <Categories />
