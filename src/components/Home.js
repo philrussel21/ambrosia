@@ -7,6 +7,7 @@ export default function Home() {
 
   const legend =
     [
+      { name: "All Drinks", link: "/drinks", color: "primary", content: "Something about all the drinks" },
       { name: "Categories", link: "/categories", color: "success", content: "Something about categories" },
       { name: "Ingredients", link: "/ingredients", color: "info", content: "Something about ingredients" },
       { name: "Non-Alcoholic", link: "/non-alcoholic", color: "dark", content: "Something about non alcoholic drinks" },
