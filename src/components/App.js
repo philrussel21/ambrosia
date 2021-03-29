@@ -12,6 +12,7 @@ import Home from './Home';
 import Categories from './Categories';
 import Category from './reusables/Category';
 import Drinks from './Drinks';
+import Drink from './reusables/Drink';
 
 const App = () => {
   return (
@@ -28,9 +29,15 @@ const App = () => {
             <Route exact path="/drinks">
               <Drinks />
             </Route>
+            <Route path="/drinks/:drinkId">
+              <Drink />
+            </Route>
             <Route exact path="/categories">
               <Categories />
             </Route>
+            {/* Has to use this method cause  categories from API are 
+            seperated by / which causes issues when being extracted from
+            the url */}
             <Route path="/categories/:category" component={Category} />
             <Route path="/ingredients">
               Ingredients
