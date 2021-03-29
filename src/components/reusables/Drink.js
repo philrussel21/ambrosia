@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getDrinkFromId } from '../../services/api';
+import { extractIngsAndMeas } from '../../helpers/data_helpers';
 import { Card, Button } from 'react-bootstrap';
+import IngRow from './IngRow';
 
 export default function Drink() {
   const [isLoading, setIsLoading] = useState(true);
-  const [drink, setDrink] = useState(null);
+  const [drink, setDrink] = useState({});
 
   // TODO: When random str is put on /drinks/someRandStr route,
   // an error occurs so better catch it and return a different
@@ -24,6 +26,10 @@ export default function Drink() {
         setIsLoading(false);
       });
   }, [drinkId]);
+
+  // An array consisting of objects with ing and respective
+  // measurement. [{ing: 'sample', meas: '2'}]
+  const ingredients = extractIngsAndMeas(drink);
 
   return (
     <>
@@ -46,6 +52,10 @@ export default function Drink() {
               </Card.Text>
 
               <Card.Title>Ingredients</Card.Title>
+
+              {ingredients.map((ing, i) => (
+                <IngRow ing={ing} key={i} />
+              ))}
 
               <Button variant="primary">Go somewhere</Button>
             </Card.Body>
