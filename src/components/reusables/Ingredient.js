@@ -7,7 +7,6 @@ export default function Ingredient() {
   const { ingredient } = useParams();
   const [drinks, setDrinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     getDrinksFromIng(ingredient)
@@ -30,7 +29,7 @@ export default function Ingredient() {
         </p>
       </div>
 
-      <CardCont isLoading={isLoading} drinks={drinks} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <CardCont isLoading={isLoading} drinks={drinks} />
     </div>
   );
 }

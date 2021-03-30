@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DrinkCard from './DrinkCard';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import AppPagination from './AppPagination';
 
 
-export default function CardCont({ currentPage, setCurrentPage, isLoading, drinks }) {
-
+export default function CardCont({ isLoading, drinks }) {
+  const [currentPage, setCurrentPage] = useState(1);
   const DRINKS_PER_PAGE = 10;
 
 
