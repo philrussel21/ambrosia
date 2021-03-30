@@ -13,6 +13,7 @@ import Categories from './Categories';
 import Category from './reusables/Category';
 import Drinks from './Drinks';
 import Drink from './reusables/Drink';
+import NonAlcoholic from './NonAlcoholic';
 
 const App = () => {
   return (
@@ -43,7 +44,7 @@ const App = () => {
               Ingredients
             </Route>
             <Route path="/non-alcoholic">
-              Non-Alcoholic
+              <NonAlcoholic />
             </Route>
             <Route path="/surprise-me">
               Surprise Me!
