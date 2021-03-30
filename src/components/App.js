@@ -16,6 +16,7 @@ import Drink from './reusables/Drink';
 import NonAlcoholic from './NonAlcoholic';
 import Ingredients from './Ingredients';
 import Ingredient from './reusables/Ingredient';
+import Random from './Random';
 
 const App = () => {
   return (
@@ -52,7 +53,7 @@ const App = () => {
               <NonAlcoholic />
             </Route>
             <Route path="/surprise-me">
-              Surprise Me!
+              <Random />
             </Route>
             <Route path="*">
               Invalid Route - 404

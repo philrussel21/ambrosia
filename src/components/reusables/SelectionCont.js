@@ -40,7 +40,9 @@ export default function SelectionCont({ isLoading, data, currentPage, setCurrent
           }
         </Row>
       </Container>
-      <AppPagination drinkPerPage={ING_PER_PAGE} totalDrinks={data.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage} />
+      {isLoading ||
+        <AppPagination drinkPerPage={ING_PER_PAGE} totalDrinks={data.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage} />
+      }
     </>
   );
 }
