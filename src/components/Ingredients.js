@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getStringData } from '../helpers/data_helpers';
+import { alphaSort, getStringData } from '../helpers/data_helpers';
 import { getAllIng } from '../services/api';
 import SelectionCont from './reusables/SelectionCont';
 
@@ -13,7 +13,8 @@ export default function Ingredients() {
       .then(data => {
         const { drinks } = data;
         const ingArr = getStringData(drinks);
-        setIngredients(ingArr);
+        const sortedIngArr = alphaSort(ingArr);
+        setIngredients(sortedIngArr);
         setIsLoading(false);
       });
   }, []);
