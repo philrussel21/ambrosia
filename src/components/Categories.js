@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import { getAllCat } from '../services/api';
+import { getStringData } from '../helpers/data_helpers';
 import { Link } from 'react-router-dom';
 
 export default function Categories() {
@@ -10,10 +11,7 @@ export default function Categories() {
     getAllCat()
       .then(data => {
         const { drinks } = data;
-        const categoryArr = [];
-        for (const cat of drinks) {
-          categoryArr.push(cat.strCategory);
-        }
+        const categoryArr = getStringData(drinks);
         setCategories(categoryArr);
       });
   }, []);
