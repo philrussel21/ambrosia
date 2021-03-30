@@ -14,6 +14,7 @@ import Category from './reusables/Category';
 import Drinks from './Drinks';
 import Drink from './reusables/Drink';
 import NonAlcoholic from './NonAlcoholic';
+import Ingredients from './Ingredients';
 
 const App = () => {
   return (
@@ -41,7 +42,7 @@ const App = () => {
             the url */}
             <Route path="/categories/:category" component={Category} />
             <Route path="/ingredients">
-              Ingredients
+              <Ingredients />
             </Route>
             <Route path="/non-alcoholic">
               <NonAlcoholic />
