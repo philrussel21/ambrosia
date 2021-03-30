@@ -12,14 +12,17 @@ export default function CardCont({ isLoading, drinks }) {
 
   const paginate = (pageNum) => {
     setCurrentPage(pageNum);
+    window.scrollTo(0, 0);
   };
 
   const nextPage = () => {
     setCurrentPage(currentPage + 1);
+    window.scrollTo(0, 0);
   };
 
   const prevPage = () => {
     setCurrentPage(currentPage - 1);
+    window.scrollTo(0, 0);
   };
 
   const indexOfLastDrink = currentPage * DRINKS_PER_PAGE;

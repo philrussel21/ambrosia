@@ -9,14 +9,17 @@ export default function SelectionCont({ isLoading, data, currentPage, setCurrent
 
   const paginate = (pageNum) => {
     setCurrentPage(pageNum);
+    window.scrollTo(0, 0);
   };
 
   const nextPage = () => {
     setCurrentPage(currentPage + 1);
+    window.scrollTo(0, 0);
   };
 
   const prevPage = () => {
     setCurrentPage(currentPage - 1);
+    window.scrollTo(0, 0);
   };
 
   const indexOfLastIng = currentPage * ING_PER_PAGE;
