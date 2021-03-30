@@ -10,12 +10,9 @@ export default function Category({ location }) {
   category = removeOriginFromPath(originPath, category);
 
   const [drinks, setDrinks] = useState([]);
-  const [isLoading, setIsLoading] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  // const DRINKS_PER_PAGE = 10;
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     getDrinksFromCat(category)
       .then(data => {
         const { drinks } = data;
@@ -36,7 +33,7 @@ export default function Category({ location }) {
         </p>
       </div>
 
-      <CardCont isLoading={isLoading} drinks={drinks} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <CardCont isLoading={isLoading} drinks={drinks} />
     </div>
   );
 }

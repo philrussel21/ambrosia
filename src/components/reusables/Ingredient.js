@@ -1,30 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { alphaSort } from '../helpers/data_helpers';
-import { getAllDrinks } from '../services/api';
-import CardCont from './reusables/CardCont';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getDrinksFromIng } from '../../services/api';
+import CardCont from './CardCont';
 
-export default function Drinks() {
+export default function Ingredient() {
+  const { ingredient } = useParams();
   const [drinks, setDrinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getAllDrinks()
+    getDrinksFromIng(ingredient)
       .then(data => {
-        const { drinks: nonAlcDrinks } = data[0];
-        const { drinks: alcDrinks } = data[0];
-        const allDrinks = [...nonAlcDrinks, ...alcDrinks];
-        // Not necessary since .sort is destructive??
-        const sortedDrinks = alphaSort(allDrinks);
-        setDrinks(sortedDrinks);
+        const { drinks } = data;
+        setDrinks(drinks);
         setIsLoading(false);
       });
-  }, []);
+  }, [ingredient]);
+
   return (
     <div className="content">
       {/* Heading */}
       <div>
         <h1 className="display-4 text-center">
-          All Drinks
+          {ingredient}
         </h1>
         <p className="lead">
           Some text to support the catchy title. This should elaborate a little bit how to use the app or the features that it has.

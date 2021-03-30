@@ -14,6 +14,8 @@ import Category from './reusables/Category';
 import Drinks from './Drinks';
 import Drink from './reusables/Drink';
 import NonAlcoholic from './NonAlcoholic';
+import Ingredients from './Ingredients';
+import Ingredient from './reusables/Ingredient';
 
 const App = () => {
   return (
@@ -40,8 +42,11 @@ const App = () => {
             seperated by / which causes issues when being extracted from
             the url */}
             <Route path="/categories/:category" component={Category} />
-            <Route path="/ingredients">
-              Ingredients
+            <Route exact path="/ingredients">
+              <Ingredients />
+            </Route>
+            <Route path="/ingredients/:ingredient">
+              <Ingredient />
             </Route>
             <Route path="/non-alcoholic">
               <NonAlcoholic />
