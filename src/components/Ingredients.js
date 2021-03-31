@@ -6,6 +6,7 @@ import SelectionCont from './reusables/SelectionCont';
 export default function Ingredients() {
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
 
   useEffect(() => {
@@ -16,6 +17,11 @@ export default function Ingredients() {
         const sortedIngArr = alphaSort(ingArr);
         setIngredients(sortedIngArr);
         setIsLoading(false);
+      })
+      .catch(e => {
+        console.log(e);
+        setIsLoading(false);
+        setIsError(true);
       });
   }, []);
   return (
@@ -30,7 +36,7 @@ export default function Ingredients() {
         </p>
       </div>
 
-      <SelectionCont isLoading={isLoading} data={ingredients} />
+      <SelectionCont isLoading={isLoading} data={ingredients} isError={isError} />
     </div>
   );
 }

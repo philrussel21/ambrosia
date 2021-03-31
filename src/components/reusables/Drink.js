@@ -8,10 +8,7 @@ import IngRow from './IngRow';
 export default function Drink() {
   const [isLoading, setIsLoading] = useState(true);
   const [drink, setDrink] = useState({});
-
-  // TODO: When random str is put on /drinks/someRandStr route,
-  // an error occurs so better catch it and return a different
-  // component or like "No Drink Exist"
+  const [isError, setIsError] = useState(false);
 
   // Extracting drinkId object since it was how it was named 
   // in App.js component.
@@ -23,6 +20,11 @@ export default function Drink() {
         const { drinks } = data;
         // The variable drinks returns an array with one el
         setDrink(drinks[0]);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.log(error);
+        setIsError(true);
         setIsLoading(false);
       });
   }, [drinkId]);
@@ -38,29 +40,33 @@ export default function Drink() {
         // Skeleton Here
         "Loading"
         :
-        <div>
-          {/* <Card style={{ width: '18rem' }}> */}
-          {console.log(drink)}
-          <Card >
-            <Card.Img variant="top" src={drink.strDrinkThumb} />
-            <Card.Body>
-              <Card.Title>{drink.strDrink}</Card.Title>
+        isError
+          ?
+          "Something went wrong. Please select a valid Drink."
+          :
+          <div>
+            {/* <Card style={{ width: '18rem' }}> */}
+            {console.log(drink)}
+            <Card >
+              <Card.Img variant="top" src={drink.strDrinkThumb} />
+              <Card.Body>
+                <Card.Title>{drink.strDrink}</Card.Title>
 
-              <Card.Title>Instructions</Card.Title>
-              <Card.Text>
-                {drink.strInstructions}
-              </Card.Text>
+                <Card.Title>Instructions</Card.Title>
+                <Card.Text>
+                  {drink.strInstructions}
+                </Card.Text>
 
-              <Card.Title>Ingredients</Card.Title>
+                <Card.Title>Ingredients</Card.Title>
 
-              {ingredients.map((ing, i) => (
-                <IngRow ing={ing} key={i} />
-              ))}
+                {ingredients.map((ing, i) => (
+                  <IngRow ing={ing} key={i} />
+                ))}
 
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </div>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+          </div>
       }
     </>
   );

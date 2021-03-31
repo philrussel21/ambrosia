@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import AppPagination from './AppPagination';
 
 
-export default function CardCont({ isLoading, drinks }) {
+export default function CardCont({ isLoading, drinks, isError }) {
   const [currentPage, setCurrentPage] = useState(1);
   const DRINKS_PER_PAGE = 10;
 
@@ -38,14 +38,21 @@ export default function CardCont({ isLoading, drinks }) {
             // Skeleton Here
             "Loading"
             :
-            currentDrinks.map(drink => (
-              <DrinkCard drink={drink} key={drink.idDrink} />
-            ))
+            isError
+              ?
+              "Something went wrong."
+              :
+              currentDrinks.map(drink => (
+                <DrinkCard drink={drink} key={drink.idDrink} />
+              ))
           }
         </Row>
       </Container>
-      {isLoading ||
-        <AppPagination currentPage={currentPage} drinkPerPage={DRINKS_PER_PAGE} totalDrinks={drinks.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage} />
+      {isLoading
+        ?
+        <> </>
+        :
+        isError || <AppPagination currentPage={currentPage} drinkPerPage={DRINKS_PER_PAGE} totalDrinks={drinks.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage} />
       }
     </>
   );
