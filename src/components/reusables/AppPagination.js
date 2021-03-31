@@ -1,7 +1,7 @@
 import React from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 
-export default function AppPagination({ drinkPerPage, totalDrinks, paginate, nextPage, prevPage }) {
+export default function AppPagination({ currentPage, drinkPerPage, totalDrinks, paginate, nextPage, prevPage }) {
 
   const pageNums = [];
 
@@ -9,14 +9,16 @@ export default function AppPagination({ drinkPerPage, totalDrinks, paginate, nex
     pageNums.push(i);
   }
 
+  const lastPage = pageNums[pageNums.length - 1];
+
   return (
     <>
       <Pagination>
-        <Pagination.Item onClick={() => prevPage()}>Previous</Pagination.Item>
+        <Pagination.Item onClick={() => prevPage()} disabled={currentPage === 1}>Previous</Pagination.Item>
         {pageNums.map(p => (
           <Pagination.Item key={p} onClick={() => paginate(p)}>{p}</Pagination.Item>
         ))}
-        <Pagination.Item onClick={() => nextPage()}>Next</Pagination.Item>
+        <Pagination.Item onClick={() => nextPage()} disabled={currentPage === lastPage}>Next</Pagination.Item>
       </Pagination>
     </>
   );

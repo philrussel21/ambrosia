@@ -44,9 +44,8 @@ export default function CardCont({ isLoading, drinks }) {
           }
         </Row>
       </Container>
-      {/* TODO: Disable Previous and Next when onto the first and last page respectively */}
       {isLoading ||
-        <AppPagination drinkPerPage={DRINKS_PER_PAGE} totalDrinks={drinks.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage} />
+        <AppPagination currentPage={currentPage} drinkPerPage={DRINKS_PER_PAGE} totalDrinks={drinks.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage} />
       }
     </>
   );
