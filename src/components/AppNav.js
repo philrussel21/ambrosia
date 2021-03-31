@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -8,10 +8,15 @@ import Button from 'react-bootstrap/Button';
 import logo from '../assets/svg/Ambrosia.svg';
 
 
-
 export default function AppNav() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleNavClick = () => {
+    setIsExpanded(false);
+  };
+
   return (
-    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark" expanded={isExpanded}>
       <Link to="/">
         <Navbar.Brand>
           <img
@@ -24,24 +29,24 @@ export default function AppNav() {
         Ambrosia
       </Navbar.Brand>
       </Link>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={() => setIsExpanded(!isExpanded)} />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Link to="/" className="nav-link">
+          <Nav.Link as={Link} to="/" onClick={handleNavClick}>
             Home
-            </Link>
-          <Link to="/categories" className="nav-link">
+          </Nav.Link>
+          <Nav.Link as={Link} to="/categories" onClick={handleNavClick}>
             Categories
-            </Link>
-          <Link to="/ingredients" className="nav-link">
+            </Nav.Link>
+          <Nav.Link as={Link} to="/ingredients" onClick={handleNavClick}>
             Ingredients
-            </Link>
-          <Link to="/non-alcoholic" className="nav-link">
+            </Nav.Link>
+          <Nav.Link as={Link} to="/non-alcoholic" onClick={handleNavClick}>
             Non-Alcoholic
-            </Link>
-          <Link to="/surprise-me" className="nav-link">
+            </Nav.Link>
+          <Nav.Link as={Link} to="/surprise-me" onClick={handleNavClick}>
             Surprise Me!
-            </Link>
+            </Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />

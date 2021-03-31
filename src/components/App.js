@@ -49,10 +49,10 @@ const App = () => {
             <Route path="/ingredients/:ingredient">
               <Ingredient />
             </Route>
-            <Route path="/non-alcoholic">
+            <Route exact path="/non-alcoholic">
               <NonAlcoholic />
             </Route>
-            <Route path="/surprise-me">
+            <Route exact path="/surprise-me">
               <Random />
             </Route>
             <Route path="*">

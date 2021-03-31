@@ -11,6 +11,7 @@ export default function Category({ location }) {
 
   const [drinks, setDrinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     getDrinksFromCat(category)
@@ -18,6 +19,11 @@ export default function Category({ location }) {
         const { drinks } = data;
         setDrinks(drinks);
         setIsLoading(false);
+      })
+      .catch(e => {
+        console.log(e);
+        setIsLoading(false);
+        setIsError(true);
       });
   }, [category]);
 
@@ -33,7 +39,7 @@ export default function Category({ location }) {
         </p>
       </div>
 
-      <CardCont isLoading={isLoading} drinks={drinks} />
+      <CardCont isLoading={isLoading} drinks={drinks} isError={isError} />
     </div>
   );
 }

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import AppPagination from './AppPagination';
 import SelectionCard from './SelectionCard';
 
-export default function SelectionCont({ isLoading, data, currentPage, setCurrentPage }) {
+export default function SelectionCont({ isLoading, data, isError }) {
+  const [currentPage, setCurrentPage] = useState(1);
   const ING_PER_PAGE = 20;
 
 
@@ -34,14 +35,21 @@ export default function SelectionCont({ isLoading, data, currentPage, setCurrent
             // Skeleton comp here
             "Loading"
             :
-            currentData.map((el, i) => (
-              <SelectionCard data={el} key={i} />
-            ))
+            isError
+              ?
+              "Something went wrong"
+              :
+              currentData.map((el, i) => (
+                <SelectionCard data={el} key={i} />
+              ))
           }
         </Row>
       </Container>
-      {isLoading ||
-        <AppPagination drinkPerPage={ING_PER_PAGE} totalDrinks={data.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage} />
+      {isLoading
+        ?
+        <></>
+        :
+        isError || <AppPagination currentPage={currentPage} drinkPerPage={ING_PER_PAGE} totalDrinks={data.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage} />
       }
     </>
   );

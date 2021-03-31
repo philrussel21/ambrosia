@@ -6,6 +6,7 @@ import CardCont from './reusables/CardCont';
 export default function Drinks() {
   const [drinks, setDrinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     getAllDrinks()
@@ -17,6 +18,11 @@ export default function Drinks() {
         const sortedDrinks = alphaSort(allDrinks);
         setDrinks(sortedDrinks);
         setIsLoading(false);
+      })
+      .catch(e => {
+        console.log(e);
+        setIsLoading(false);
+        setIsError(true);
       });
   }, []);
   return (
@@ -31,7 +37,7 @@ export default function Drinks() {
         </p>
       </div>
 
-      <CardCont isLoading={isLoading} drinks={drinks} />
+      <CardCont isLoading={isLoading} drinks={drinks} isError={isError} />
     </div>
   );
 }

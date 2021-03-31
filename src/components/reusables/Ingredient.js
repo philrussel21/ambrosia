@@ -7,6 +7,7 @@ export default function Ingredient() {
   const { ingredient } = useParams();
   const [drinks, setDrinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     getDrinksFromIng(ingredient)
@@ -14,6 +15,11 @@ export default function Ingredient() {
         const { drinks } = data;
         setDrinks(drinks);
         setIsLoading(false);
+      })
+      .catch(e => {
+        console.log(e);
+        setIsLoading(false);
+        setIsError(true);
       });
   }, [ingredient]);
 
@@ -29,7 +35,7 @@ export default function Ingredient() {
         </p>
       </div>
 
-      <CardCont isLoading={isLoading} drinks={drinks} />
+      <CardCont isLoading={isLoading} drinks={drinks} isError={isError} />
     </div>
   );
 }
