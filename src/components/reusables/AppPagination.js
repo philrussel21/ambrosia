@@ -16,7 +16,7 @@ export default function AppPagination({ currentPage, drinkPerPage, totalDrinks, 
       <Pagination>
         <Pagination.Item onClick={() => prevPage()} disabled={currentPage === 1}>Previous</Pagination.Item>
         {pageNums.map(p => (
-          <Pagination.Item key={p} onClick={() => paginate(p)}>{p}</Pagination.Item>
+          <Pagination.Item key={p} onClick={() => paginate(p)} active={currentPage === p}>{p}</Pagination.Item>
         ))}
         <Pagination.Item onClick={() => nextPage()} disabled={currentPage === lastPage}>Next</Pagination.Item>
       </Pagination>
