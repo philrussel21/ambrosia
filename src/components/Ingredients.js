@@ -6,7 +6,7 @@ import SelectionCont from './reusables/SelectionCont';
 export default function Ingredients() {
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
+
 
   useEffect(() => {
     getAllIng()
@@ -30,7 +30,7 @@ export default function Ingredients() {
         </p>
       </div>
 
-      <SelectionCont isLoading={isLoading} data={ingredients} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <SelectionCont isLoading={isLoading} data={ingredients} />
     </div>
   );
 }
