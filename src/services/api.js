@@ -33,14 +33,6 @@ export const getAllDrinks = () => {
 
 export const getAllCat = () => {
   const fullUrl = baseUrl + "list.php?c=list";
-  // return fetch(fullUrl)
-  //   .then(handleErrors)
-  //   .then(res => {
-  //     return res.json()
-  //       .then(data => {
-  //         return data;
-  //       });
-  //   });
   return getData(fullUrl);
 };
 
