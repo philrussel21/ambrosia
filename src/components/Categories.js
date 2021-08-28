@@ -27,6 +27,7 @@ export default function Categories() {
         </p>
       </div>
       {/* Selection */}
+      {/* Multiple accounts on same machine test */}
       {categories ?
         <Container>
           <Row>
